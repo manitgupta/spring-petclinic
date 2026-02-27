@@ -60,7 +60,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DisabledInAotMode
 class OwnerControllerTests {
 
-	private static final int TEST_OWNER_ID = 1;
+	private static final long TEST_OWNER_ID = 1L;
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -83,7 +83,7 @@ class OwnerControllerTests {
 		max.setName("Max");
 		max.setBirthDate(LocalDate.now());
 		george.addPet(max);
-		max.setId(1);
+		max.setId(1L);
 		return george;
 	}
 
@@ -230,10 +230,10 @@ class OwnerControllerTests {
 
 	@Test
 	public void testProcessUpdateOwnerFormWithIdMismatch() throws Exception {
-		int pathOwnerId = 1;
+		long pathOwnerId = 1L;
 
 		Owner owner = new Owner();
-		owner.setId(2);
+		owner.setId(2L);
 		owner.setFirstName("John");
 		owner.setLastName("Doe");
 		owner.setAddress("Center Street");

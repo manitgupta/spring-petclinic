@@ -64,7 +64,7 @@ class PetController {
 	}
 
 	@ModelAttribute("owner")
-	public Owner findOwner(@PathVariable("ownerId") int ownerId) {
+	public Owner findOwner(@PathVariable("ownerId") Long ownerId) {
 		Optional<Owner> optionalOwner = this.owners.findById(ownerId);
 		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
 				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
@@ -72,8 +72,8 @@ class PetController {
 	}
 
 	@ModelAttribute("pet")
-	public Pet findPet(@PathVariable("ownerId") int ownerId,
-			@PathVariable(name = "petId", required = false) Integer petId) {
+	public Pet findPet(@PathVariable("ownerId") Long ownerId,
+			@PathVariable(name = "petId", required = false) Long petId) {
 
 		if (petId == null) {
 			return new Pet();
@@ -163,7 +163,7 @@ class PetController {
 	 * @param pet The pet with updated details
 	 */
 	private void updatePetDetails(Owner owner, Pet pet) {
-		Integer id = pet.getId();
+		Long id = pet.getId();
 		Assert.state(id != null, "'pet.getId()' must not be null");
 		Pet existingPet = owner.getPet(id);
 		if (existingPet != null) {
