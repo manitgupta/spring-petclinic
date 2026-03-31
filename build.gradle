@@ -29,6 +29,8 @@ ext.springJavaformatCheckstyleVersion = "0.0.47"
 ext.webjarsLocatorLiteVersion = "1.1.2"
 ext.webjarsFontawesomeVersion = "4.7.0"
 ext.webjarsBootstrapVersion = "5.3.8"
+ext.googleCloudSpannerHibernateDialectVersion = "3.9.0"
+ext.googleCloudSpannerJdbcVersion = "2.35.4"
 
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-cache'
@@ -46,6 +48,8 @@ dependencies {
   runtimeOnly 'com.h2database:h2'
   runtimeOnly 'com.mysql:mysql-connector-j'
   runtimeOnly 'org.postgresql:postgresql'
+  runtimeOnly "com.google.cloud:google-cloud-spanner-hibernate-dialect:${googleCloudSpannerHibernateDialectVersion}"
+  runtimeOnly "com.google.cloud:google-cloud-spanner-jdbc:${googleCloudSpannerJdbcVersion}"
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
   testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
   testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
